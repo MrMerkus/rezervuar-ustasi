@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Gömme Rezervuar Ustası | İstanbul'da Garantili Rezervuar Tamiri (örnek taslak)</title>
+<meta name="description" content="Gömme rezervuar tamiri, mekanizma değişimi ve iç takım servisi. İstanbul Avrupa ve Anadolu Yakası, 7/24 gezici servis.">
+<style>
+:root{
+  --kagit:#f4f1ea; --kagit-2:#e9e4d8;
+  --murekkep:#1f2421; --soluk:#5c625d;
+  --pas:#b5522b; --wa:#1f8f4e; --cizgi:#cfc8b8;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--kagit); color:var(--murekkep);
+  font:17px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  padding-bottom:72px; overflow-x:hidden;
+}
+.kap{max-width:1080px; margin:0 auto; padding:0 20px}
+h1,h2,h3{font-weight:800; line-height:1.05; letter-spacing:-.01em; margin:0; text-align:left}
+h1{font-size:clamp(34px,8.5vw,56px)}
+h2{font-size:clamp(26px,6vw,36px)}
+h3{font-size:19px; line-height:1.2}
+p{margin:0}
+a{color:var(--pas)}
+a:focus-visible,summary:focus-visible,.btn:focus-visible{outline:3px solid var(--murekkep); outline-offset:3px}
+
+/* üst şerit */
+.ust{border-bottom:1px solid var(--cizgi)}
+.ust .kap{display:flex; justify-content:space-between; align-items:center; padding-top:14px; padding-bottom:14px}
+.marka{font-weight:800; font-size:18px; letter-spacing:-.01em}
+.ust-ara{font-weight:700; color:var(--murekkep); text-decoration:none; border:1.5px solid var(--murekkep); border-radius:6px; padding:6px 14px; font-size:15px}
+
+/* butonlar */
+.btn{display:flex; align-items:center; justify-content:center; text-align:center; min-height:56px; padding:12px 22px; border-radius:6px; font-weight:800; font-size:18px; text-decoration:none; border:2px solid var(--murekkep); color:var(--murekkep); background:transparent}
+.btn.wa{background:var(--wa); border-color:var(--wa); color:#fff}
+.btns{display:flex; flex-direction:column; gap:12px; margin-top:26px}
+
+/* giriş */
+.giris{padding:36px 0 44px}
+.giris .kap{display:grid; gap:32px}
+.giris p.alt{font-size:19px; margin-top:18px; max-width:34em}
+.minik{font-size:15px; color:var(--soluk); margin-top:14px}
+.minik strong{color:var(--murekkep)}
+
+/* bölümler */
+section{padding:48px 0; border-top:1px solid var(--cizgi)}
+.etiket{display:block; color:var(--pas); font-weight:800; font-size:14px; letter-spacing:.04em; text-transform:uppercase; margin-bottom:10px}
+.baslik-alt{width:48px; height:3px; background:var(--pas); margin:16px 0 22px}
+.giris-yazi{max-width:38em; color:var(--soluk)}
+
+/* arıza listesi */
+.liste{list-style:none; margin:0; padding:0; border-top:1px solid var(--cizgi)}
+.liste li{padding:18px 0; border-bottom:1px solid var(--cizgi)}
+.liste strong{display:block; font-size:19px; margin-bottom:4px}
+
+/* adımlar */
+.adimlar{list-style:none; margin:0; padding:0; display:grid; gap:26px; counter-reset:a}
+.adimlar li{display:grid; grid-template-columns:64px 1fr; gap:6px; align-items:start}
+.adimlar li::before{counter-increment:a; content:counter(a,decimal-leading-zero); color:var(--pas); font-weight:800; font-size:44px; line-height:1; letter-spacing:-.02em}
+.adimlar strong{display:block; font-size:19px; margin-bottom:2px}
+
+/* fotoğraf yeri */
+.foto-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.foto{aspect-ratio:4/3; background:var(--kagit-2); border:1.5px dashed #b9b09c; border-radius:3px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:10px; text-align:center; color:var(--soluk); font-size:14px; line-height:1.3}
+.foto svg{width:34px; height:34px; stroke:var(--soluk); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round}
+.giris .foto{font-size:15px}
+
+/* markalar, bölgeler */
+.duz{font-size:20px; font-weight:700; line-height:1.5}
+.semtler{color:var(--soluk)}
+.semtler strong{color:var(--murekkep)}
+
+/* garanti */
+.garanti{border-left:5px solid var(--pas); padding:6px 0 6px 18px; max-width:40em}
+.garanti h3{font-size:22px; margin-bottom:8px}
+
+/* SSS */
+details{border-bottom:1px solid var(--cizgi)}
+details:first-of-type{border-top:1px solid var(--cizgi)}
+summary{cursor:pointer; font-weight:800; padding:16px 0; font-size:18px; line-height:1.25}
+details p{padding:0 0 18px; color:var(--soluk); max-width:40em}
+
+/* son çağrı */
+.son{background:var(--kagit-2)}
+.son p{margin-top:14px; max-width:36em}
+
+footer{border-top:1px solid var(--cizgi); padding:28px 0 36px; font-size:15px; color:var(--soluk)}
+footer strong{color:var(--murekkep); font-size:17px}
+footer p+p{margin-top:6px}
+.yer{background:#fff3c4; color:var(--murekkep); padding:0 4px; border-radius:2px}
+
+/* sabit alt bar (yalnız mobil) */
+.bar{position:fixed; left:0; right:0; bottom:0; display:flex; height:56px; z-index:5; border-top:1px solid var(--murekkep)}
+.bar a{flex:1; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:17px; text-decoration:none}
+.bar .b-wa{background:var(--wa); color:#fff}
+.bar .b-ara{background:var(--kagit); color:var(--murekkep)}
+
+@media (min-width:760px){
+  body{padding-bottom:0}
+  .bar{display:none}
+  .btns{flex-direction:row}
+  .btn{min-width:230px}
+  .giris{padding:64px 0 72px}
+  .giris .kap{grid-template-columns:1.25fr 1fr; align-items:center; gap:56px}
+  .foto-grid{grid-template-columns:repeat(4,1fr)}
+  .adimlar{grid-template-columns:repeat(2,1fr); gap:34px 48px}
+  section{padding:68px 0}
+  .liste li{display:grid; grid-template-columns:300px 1fr; gap:24px; align-items:baseline}
+  .liste strong{margin:0}
+}
+@media (max-width:759px){
+  .giris .foto-yan{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="ust">
+  <div class="kap">
+    <span class="marka">Gömme Rezervuar Ustası</span>
+    <a class="ust-ara" href="tel:+905321511726">Ara</a>
+  </div>
+</header>
+
+<main>
+  <section class="giris" style="border-top:0">
+    <div class="kap">
+      <div>
+        <h1>Rezervuarınız su mu kaçırıyor? Kırma dökme olmadan tamir ediyoruz.</h1>
+        <p class="alt">Gömme rezervuar tamiri, mekanizma değişimi ve iç takım servisi için İstanbul'un her ilçesine aynı gün gezici servis.</p>
+        <div class="btns">
+          <a class="btn wa" href="https://wa.me/905321511726?text=Merhaba,%20rezervuar%20ar%C4%B1zas%C4%B1%20i%C3%A7in%20bilgi%20almak%20istiyorum" target="_blank" rel="noopener">WhatsApp'tan yazın</a>
+          <a class="btn" href="tel:+905321511726">Hemen arayın</a>
+        </div>
+        <p class="minik"><strong>7/24 gezici servis:</strong> İstanbul Avrupa ve Anadolu Yakası. WhatsApp'tan fotoğraf gönderin, ön fiyat alın.</p>
+      </div>
+      <div class="foto-yan">
+        <div class="foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Fotoğraf gelecek: Ustanın kendisi</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ariza">
+    <div class="kap">
+      <span class="etiket">01 · Hangi arızaya bakıyoruz</span>
+      <h2>Rezervuar tamiri ve servis</h2>
+      <div class="baslik-alt"></div>
+      <ul class="liste">
+        <li><strong>Mekanizma değişimi</strong><span>Dolum valfi, boşaltma grubu, buton takımı ve çift kademe mekanizmaları marka uyumlu parçalarla yenilenir. 30-60 dakikada işlem.</span></li>
+        <li><strong>Su kaçırma tamiri</strong><span>Rezervuar su kaçırıyor veya sürekli su akıtıyorsa conta, şamandıra ve mekanizma arızası net şekilde tespit edilir.</span></li>
+        <li><strong>Baskı plakası ve buton</strong><span>Düğme çalışmıyor, buton basmıyor veya klozet rezervuarı dolmuyorsa kumanda plakası, bağlantı çubukları ve gömme kutu parçaları ayarlanır.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="surec">
+    <div class="kap">
+      <span class="etiket">02 · Nasıl çalışıyoruz</span>
+      <h2>Net fiyat, temiz işçilik, yazılı garanti</h2>
+      <div class="baslik-alt"></div>
+      <ol class="adimlar">
+        <li><div><strong>Fotoğraf veya video gönderin</strong>Rezervuar kapağı, buton ve arıza belirtisi üzerinden ilk değerlendirme yapılır.</div></li>
+        <li><div><strong>Uygun ekip yönlendirilir</strong>İlçenize en yakın gezici servis ekibi aynı gün randevu için dönüş yapar.</div></li>
+        <li><div><strong>Fiyat onayı alınır</strong>İşlem başlamadan önce parça ve işçilik kapsamı açıkça paylaşılır.</div></li>
+        <li><div><strong>Garantiyle teslim edilir</strong>Değişen parçalar test edilir, kullanım bilgilendirmesi yapılır ve garanti süreci başlar.</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="foto">
+    <div class="kap">
+      <span class="etiket">03 · İş başında</span>
+      <h2>Fotoğraflar</h2>
+      <div class="baslik-alt"></div>
+      <div class="foto-grid">
+        <div class="foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Fotoğraf gelecek: Ustanın kendisi</span></div>
+        <div class="foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Fotoğraf gelecek: Söküm sırasında rezervuarın içi</span></div>
+        <div class="foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Fotoğraf gelecek: İşten önce / sonra</span></div>
+        <div class="foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Fotoğraf gelecek: Araç ve takım çantası</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="markalar">
+    <div class="kap">
+      <span class="etiket">04 · Markalar</span>
+      <h2>Hangi markalara bakıyoruz</h2>
+      <div class="baslik-alt"></div>
+      <p class="duz">Vitra · Kale · Siamp · Serel · Creavit · Japar</p>
+      <p class="giris-yazi" style="margin-top:12px">Orijinal veya muadil kaliteli, marka uyumlu parça. Yaygın diğer markalarda da mekanizma, conta, buton ve iç takım işlemleri yapılır.</p>
+    </div>
+  </section>
+
+  <section id="bolgeler">
+    <div class="kap">
+      <span class="etiket">05 · Bölgeler</span>
+      <h2>Hangi semtlere geliyoruz</h2>
+      <div class="baslik-alt"></div>
+      <p class="semtler">İstanbul geneli gömme rezervuar tamiri için Avrupa Yakası ve Anadolu Yakası'nda gezici servis sistemiyle çalışılır. Esenyurt, Beylikdüzü, Avcılar, Büyükçekmece ve Başakşehir gibi bölgelerde hızlı yönlendirme yapılır.</p>
+      <p class="semtler" style="margin-top:14px"><strong>Tüm ilçeler:</strong> Adalar, Arnavutköy, Ataşehir, Avcılar, Bağcılar, Bahçelievler, Bakırköy, Başakşehir, Bayrampaşa, Beşiktaş, Beykoz, Beylikdüzü, Beyoğlu, Büyükçekmece, Çatalca, Çekmeköy, Esenler, Esenyurt, Eyüpsultan, Fatih, Gaziosmanpaşa, Güngören, Kadıköy, Kağıthane, Kartal, Küçükçekmece, Maltepe, Pendik, Sancaktepe, Sarıyer, Silivri, Sultanbeyli, Sultangazi, Şile, Şişli, Tuzla, Ümraniye, Üsküdar, Zeytinburnu.</p>
+    </div>
+  </section>
+
+  <section id="garanti">
+    <div class="kap">
+      <span class="etiket">06 · Sözümüz</span>
+      <div class="garanti">
+        <h3>Değişimi yapılan tüm ürünlerde 1 yıl garanti</h3>
+        <p>Parça ve işçilik kapsamı işlem öncesi açıklanır; aynı arızada garanti desteği sağlanır. Yazılı garanti belgesi verilir, aynı arızada tekrar müdahale ücretsizdir.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sss">
+    <div class="kap">
+      <span class="etiket">07 · Sıkça sorulanlar</span>
+      <h2>Servis öncesi merak edilenler</h2>
+      <div class="baslik-alt"></div>
+      <details><summary>Rezervuar neden su kaçırır?</summary><p>En yaygın sebepler boşaltma contası aşınması, dolum valfi arızası, şamandıra ayarsızlığı veya mekanizma kireçlenmesidir. Yerinde tespitle doğru parça belirlenir.</p></details>
+      <details><summary>Gömme rezervuar nasıl tamir edilir?</summary><p>Genellikle kumanda kapağı üzerinden başlanır. Mekanizma çıkarılır, conta ve dolum grubu kontrol edilir. Çoğu işlem kırma dökme gerektirmez.</p></details>
+      <details><summary>Rezervuar sürekli akıyor ne yapmalıyım?</summary><p>Önce ara musluğu kapatıp su kaybını durdurabilirsiniz. Ardından dolum valfi, boşaltma contası veya iç takım arızası için servis talebi oluşturun.</p></details>
+      <details><summary>Klozet rezervuarı neden dolmuyor?</summary><p>Genellikle ara musluk, filtre tıkanıklığı, dolum valfi veya şamandıra kaynaklıdır. Parça kontrolü yapılarak uygun onarım veya değişim planlanır.</p></details>
+      <details><summary>Gömme rezervuar düğmesi çalışmıyor, ne yapılır?</summary><p>Baskı plakası, bağlantı çubukları veya boşaltma mekanizması ayarsız olabilir. Kumanda kapağı sökülerek ayar ve parça kontrolü yapılır.</p></details>
+      <details><summary>Rezervuar iç takımı nasıl değiştirilir?</summary><p>Doğru marka ve model seçimi önemlidir. Eski dolum ve boşaltma grubu sökülür, uyumlu yeni iç takım takılır ve test edilir.</p></details>
+      <details><summary>Fiyatı önceden öğrenebilir miyim?</summary><p>WhatsApp'tan fotoğraf veya kısa video göndererek ön fiyat alabilirsiniz. Kesin fiyat, yerinde tespit sonrası işlem başlamadan önce onayınıza sunulur.</p></details>
+      <details><summary>Hangi markalara servis veriyorsunuz?</summary><p>Vitra, Kale, Siamp, Serel, Creavit, Japar ve yaygın diğer tüm markalarda mekanizma, conta, buton ve iç takım işlemleri yapılır.</p></details>
+    </div>
+  </section>
+
+  <section class="son">
+    <div class="kap">
+      <h2>Rezervuar arızasını bugün çözelim</h2>
+      <p>Arıza fotoğrafını gönderin; uygun parça, tahmini servis süresi ve fiyat aralığı için hızlı dönüş yapalım.</p>
+      <div class="btns">
+        <a class="btn wa" href="https://wa.me/905321511726?text=Merhaba,%20rezervuar%20ar%C4%B1zas%C4%B1%20i%C3%A7in%20bilgi%20almak%20istiyorum" target="_blank" rel="noopener">WhatsApp'tan yazın</a>
+        <a class="btn" href="tel:+905321511726">Hemen arayın</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="kap">
+    <p><strong>Gömme Rezervuar Ustası</strong></p>
+    <p>Yetkili: <span class="yer">[Usta adı]</span></p>
+    <p>İstanbul - Tüm ilçeler · <a href="tel:+905321511726">0532 151 17 26</a></p>
+    <p>Bu sayfa örnek taslaktır.</p>
+  </div>
+</footer>
+
+<nav class="bar" aria-label="Hızlı iletişim">
+  <a class="b-wa" href="https://wa.me/905321511726?text=Merhaba,%20rezervuar%20ar%C4%B1zas%C4%B1%20i%C3%A7in%20bilgi%20almak%20istiyorum" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="b-ara" href="tel:+905321511726">Ara</a>
+</nav>
+
+</body>
+</html>
