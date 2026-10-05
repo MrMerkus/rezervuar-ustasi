@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rezervuar Ustası — tasarım seçenekleri</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{--zemin:#eceae4;--kart:#fff;--metin:#1d1f22;--soluk:#62656b;--cizgi:#c9c6bd;--vurgu:#1d1f22}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--zemin);color:var(--metin);font:15px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;flex-direction:column}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding:12px 16px;border-bottom:1px solid var(--cizgi);background:var(--kart)}
+h1{font-size:16px;margin:0;font-weight:650}
+.grup{display:flex;border:1px solid var(--metin);border-radius:3px;overflow:hidden}
+.grup button{font:inherit;font-size:13px;background:none;border:0;padding:6px 12px;cursor:pointer;color:var(--metin)}
+.grup button+button{border-left:1px solid var(--metin)}
+.grup button[aria-pressed=true]{background:var(--metin);color:#fff}
+.sekmeler[hidden]{display:none}
+.sekmeler{display:flex;flex-wrap:wrap;gap:6px}
+.sekmeler button{font:inherit;font-size:13px;background:none;border:1px solid var(--cizgi);border-radius:3px;padding:6px 10px;cursor:pointer;color:var(--metin)}
+.sekmeler button[aria-pressed=true]{border-color:var(--metin);font-weight:650}
+.ipucu{color:var(--soluk);font-size:13px;margin-left:auto}
+main{flex:1;min-height:0;display:grid;gap:12px;padding:12px}
+main.yan{grid-template-columns:repeat(4,minmax(0,1fr))}
+main.tek{grid-template-columns:1fr}
+main.tek .secenek:not(.acik){display:none}
+.secenek{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--kart);border:1px solid var(--cizgi)}
+.baslik{display:flex;align-items:baseline;gap:8px;padding:8px 10px;border-bottom:1px solid var(--cizgi)}
+.baslik b{font-size:14px}
+.baslik span{color:var(--soluk);font-size:12px;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.baslik a{font-size:12px;color:var(--metin)}
+.sahne{flex:1;min-height:0;overflow:hidden;position:relative;display:flex;justify-content:center;background:#d9d6ce}
+.sahne iframe{border:0;background:#fff;transform-origin:top center;position:absolute;top:0}
+.secenek.ilk .baslik{background:#f6f4ee}
+@media (max-width:900px){
+  main.yan{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:70vh;overflow:auto}
+  .ipucu{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Rezervuar Ustası · 4 seçenek</h1>
+  <div class="grup" role="group" aria-label="Görünüm">
+    <button data-gorunum="yan" aria-pressed="true">Yan yana</button>
+    <button data-gorunum="tek" aria-pressed="false">Tek tek</button>
+  </div>
+  <div class="grup" role="group" aria-label="Ekran">
+    <button data-ekran="1280" aria-pressed="true">Masaüstü</button>
+    <button data-ekran="390" aria-pressed="false">Mobil</button>
+  </div>
+  <div class="sekmeler" role="group" aria-label="Seçenek" hidden></div>
+  <span class="ipucu">Her kutunun içinde kaydırabilirsin.</span>
+</header>
+<main class="yan"></main>
+<script>
+const secenekler = [
+  {ad:'0 · Şu anki site', not:'canlı sürüm, karşılaştırma için', yol:'../index.html'},
+  {ad:'1 · Usta kartviziti', not:'krem, lacivert, turuncu; telefon önde', yol:'../tasarim-1/index.html'},
+  {ad:'2 · Teknik şema', not:'tıklanır rezervuar kesiti', yol:'../tasarim-2/index.html'},
+  {ad:'3 · Acil servis', not:'koyu ve sarı; önce arıza seçimi', yol:'../tasarim-3/index.html'}
+];
+const main = document.querySelector('main');
+const sekmeler = document.querySelector('.sekmeler');
+let ekran = 1280, acik = 0;
+
+secenekler.forEach((s, i) => {
+  const kutu = document.createElement('section');
+  kutu.className = 'secenek' + (i === 0 ? ' ilk acik' : '');
+  kutu.innerHTML = `<div class="baslik"><b>${s.ad}</b><span>${s.not}</span><a href="${s.yol}" target="_blank" rel="noopener">yeni sekmede aç ↗</a></div>
+    <div class="sahne"><iframe src="${s.yol}" title="${s.ad}"></iframe></div>`;
+  main.append(kutu);
+  const b = document.createElement('button');
+  b.textContent = s.ad; b.setAttribute('aria-pressed', i === 0);
+  b.onclick = () => { acik = i; tazele(); };
+  sekmeler.append(b);
+});
+
+// iframe gerçek ekran genişliğinde çizilir, kutuya sığacak kadar küçültülür
+function olcekle(){
+  document.querySelectorAll('.sahne').forEach(sahne => {
+    const f = sahne.querySelector('iframe');
+    const k = Math.min(1, sahne.clientWidth / ekran);
+    f.style.width = ekran + 'px';
+    f.style.height = (sahne.clientHeight / k) + 'px';
+    f.style.transform = `scale(${k})`;
+  });
+}
+function tazele(){
+  const tek = main.classList.contains('tek');
+  sekmeler.hidden = !tek;
+  document.querySelectorAll('.secenek').forEach((k, i) => k.classList.toggle('acik', i === acik));
+  sekmeler.querySelectorAll('button').forEach((b, i) => b.setAttribute('aria-pressed', i === acik));
+  olcekle();
+}
+document.querySelectorAll('[data-gorunum]').forEach(b => b.onclick = () => {
+  main.className = b.dataset.gorunum;
+  document.querySelectorAll('[data-gorunum]').forEach(x => x.setAttribute('aria-pressed', x === b));
+  tazele();
+});
+document.querySelectorAll('[data-ekran]').forEach(b => b.onclick = () => {
+  ekran = +b.dataset.ekran;
+  document.querySelectorAll('[data-ekran]').forEach(x => x.setAttribute('aria-pressed', x === b));
+  olcekle();
+});
+addEventListener('resize', olcekle);
+olcekle();
+</script>
+</body>
+</html>
